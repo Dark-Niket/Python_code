@@ -1,0 +1,243 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\geometry{margin=1in}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\vspace{2cm}
+%\textsc{Oregon State University}\\[1.5cm]
+\includegraphics[width=1\textwidth]{dpsSociety.jpg}\\[1cm]
+\vspace{2cm}
+% Title
+\hrule
+\vspace{.5cm}
+{ \huge \bfseries COMPUTER SCIENCE PROJECT} % title of the report
+\vspace{.5cm}
+\hrule
+\vspace{1.5cm}
+\textsc{\textbf{Author}}\\
+\vspace{.5cm}
+\centering
+% add your name here
+Name-NIKET BASU\\
+Cls-XII J ; Roll No:17\\
+Adm No:14184/2024\\
+\vspace{4cm}
+
+\end{center}
+\end{titlepage}
+
+\author{Prepared by: Niket Basu}
+\date{}
+\title{{\bfseries Quiztastic}}
+
+% Set up fancy page style BEFORE \maketitle
+\pagestyle{fancy}
+\fancyhf{} % Clear all headers and footers
+\rhead{\nouppercase{\rightmark}}
+\lhead{Computer Science Synopsis} % Use actual title text instead of \title command
+\rfoot{\includegraphics[height=1cm]{logo.png}} % right footer logo
+\cfoot{\thepage}
+\setlength\headheight{16pt}
+\setlength{\footskip}{50pt}
+
+% Also define the plain style to match fancy style for first page
+\fancypagestyle{plain}{%
+  \fancyhf{} % Clear all headers and footers
+  \rhead{\nouppercase{\rightmark}}
+  \lhead{Computer Sceince Synopsis}
+  \rfoot{\includegraphics[height=1cm]{logo.png}}
+  \cfoot{\thepage}
+}
+
+\maketitle
+
+
+\section{Objective of the Proposed System}
+
+The objective of the ``Quiztastic'' project is to develop an interactive quiz platform that enables users to test and expand their knowledge across various subjects and difficulty levels. The system is designed to provide a seamless experience for users to register, log in, participate in quizzes, and view their performance on a leaderboard. By integrating with an external trivia API, the application offers a diverse range of questions while maintaining secure user authentication and persistent scoring via a database. This project aims to foster self-paced learning, healthy competition, and engagement through gamification.
+
+\textbf{Key Objectives:}
+\begin{itemize}
+    \item Automate the quiz-taking process with a user-friendly GUI.
+    \item Ensure secure registration and login for users.
+    \item Offer diverse quiz categories and difficulty levels.
+    \item Store and update user scores in a persistent database.
+    \item Motivate users through real-time feedback and leaderboards.
+    \item Provide a scalable foundation for future educational enhancements.
+\end{itemize}
+
+\section{Input and Output of the Proposed System}
+
+\subsection*{Inputs}
+\begin{itemize}
+    \item \textbf{User Details:} Username and password for registration and authentication.
+    \item \textbf{Quiz Preferences:} Selection of quiz category, difficulty level, question type, and number of questions.
+    \item \textbf{Quiz Responses:} User-selected answers to each quiz question.
+\end{itemize}
+
+\subsection*{Outputs}
+\begin{itemize}
+    \item \textbf{Quiz Questions:} Dynamically fetched from the Open Trivia DB API based on user preferences.
+    \item \textbf{Immediate Feedback:} Correctness of answers after each submission.
+    \item \textbf{Score Display:} User's score upon quiz completion.
+    \item \textbf{Leaderboard:} Ranked list of top users based on cumulative scores.
+    \item \textbf{Registration/Login Feedback:} Success or error messages for authentication.
+\end{itemize}
+
+\subsection*{Data Flow Example}
+\begin{enumerate}
+    \item User enters login credentials $\rightarrow$ System validates using database.
+    \item User selects quiz settings $\rightarrow$ System fetches relevant questions from API.
+    \item User answers questions $\rightarrow$ System evaluates and provides feedback.
+    \item Upon completion, total score is updated and displayed.
+    \item User can view the leaderboard at any time.
+\end{enumerate}
+
+\section{Functions or Features of Proposed System}
+
+\textbf{Major Features:}
+\begin{itemize}
+    \item \textbf{User Registration \& Login:}
+    \begin{itemize}
+        \item Secure sign-up with hashed password storage.
+        \item Login authentication against SQLite database.
+    \end{itemize}
+    \item \textbf{Quiz Generation:}
+    \begin{itemize}
+        \item Fetches categories and questions from Open Trivia DB.
+        \item Customizable quiz settings (category, difficulty, type, amount).
+    \end{itemize}
+    \item \textbf{Quiz Participation:}
+    \begin{itemize}
+        \item Presents questions one at a time with multiple choice/boolean options.
+        \item Provides immediate feedback on each answer.
+    \end{itemize}
+    \item \textbf{Scoring System:}
+    \begin{itemize}
+        \item Tracks and updates user's cumulative score in database.
+        \item Displays score at quiz end.
+    \end{itemize}
+    \item \textbf{Leaderboard:}
+    \begin{itemize}
+        \item Shows top 10 users ranked by score.
+        \item Motivates with real-time competitive statistics.
+    \end{itemize}
+    \item \textbf{GUI Navigation:}
+    \begin{itemize}
+        \item Intuitive navigation between login, home, quiz, and leaderboard screens.
+    \end{itemize}
+    \item \textbf{Error Handling \& User Guidance:}
+    \begin{itemize}
+        \item Informative messages for invalid inputs, API errors, and quiz completion.
+    \end{itemize}
+\end{itemize}
+
+\textbf{Additional Features for Future Expansion:}
+\begin{itemize}
+    \item Biometric authentication.
+    \item Quiz history and analytics.
+    \item Group quizzes and challenges.
+\end{itemize}
+
+\section{Front-end and Back-end to be Used}
+
+\subsection*{Front-end}
+\begin{itemize}
+    \item \textbf{Technology:} Python Tkinter (GUI library)
+    \item \textbf{Components:}
+    \begin{itemize}
+        \item Frames for each major screen (Login, Home, Quiz, Leaderboard)
+        \item Widgets: Labels, Buttons, Entry fields, Radiobuttons, Comboboxes, Spinboxes
+        \item Styling for improved user experience (fonts, colors, layouts)
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Back-end}
+\begin{itemize}
+    \item \textbf{Database:} SQLite3
+    \begin{itemize}
+        \item Stores user credentials and scores
+        \item Handles queries for registration, authentication, scoring, and leaderboard
+    \end{itemize}
+    \item \textbf{API Interaction:} Open Trivia DB
+    \begin{itemize}
+        \item Fetches quiz categories and questions remotely
+    \end{itemize}
+    \item \textbf{Other Libraries:}
+    \begin{itemize}
+        \item \texttt{requests} for making HTTP requests to API.
+        \item \texttt{hashlib} for password hashing.
+        \item \texttt{random} for shuffling answer options.
+        \item \texttt{html} for handling special characters in questions and answers.
+    \end{itemize}
+\end{itemize}
+
+\textbf{Architecture Overview:}\\
+The GUI interacts with the back-end database and the trivia API, ensuring smooth data flow and real-time user feedback.
+
+\section{Hardware \& Software to be Used}
+
+\subsection*{Hardware Requirements}
+\begin{itemize}
+    \item Standard personal computer or laptop
+    \item Minimum 2GB RAM, recommended 4GB+
+    \item No specialized hardware required (optional biometric device for future)
+\end{itemize}
+
+\subsection*{Software Requirements}
+\begin{itemize}
+    \item \textbf{Operating System:} Windows/Linux/Mac OS
+    \item \textbf{Programming Language:} Python 3.x
+    \item \textbf{Libraries:}
+    \begin{itemize}
+        \item Tkinter (built-in with Python)
+        \item requests (\texttt{pip install requests})
+        \item SQLite3 (built-in with Python)
+        \item hashlib, random, html (standard library)
+    \end{itemize}
+    \item \textbf{Additional Tools:}
+    \begin{itemize}
+        \item Internet connection (for API access and initial setup)
+        \item IDE/Text Editor (e.g., Visual Studio Code, PyCharm, IDLE)
+    \end{itemize}
+\end{itemize}
+
+\section{Scope and Limitations of the Project}
+
+\subsection*{Scope}
+\begin{itemize}
+    \item Provides an engaging platform for individual users to participate in quizzes.
+    \item Suitable for educational institutions, self-learners, and competitive environments.
+    \item Easily extendable for new features (group quizzes, analytics, additional question sources)
+    \item Promotes gamification and learning retention.
+\end{itemize}
+
+\subsection*{Limitations}
+\begin{itemize}
+    \item \textbf{Single-device focus:} No native support for mobile/web platforms.
+    \item \textbf{API dependency:} Quiz content relies on external API availability and quality.
+    \item \textbf{Database scalability:} SQLite is ideal for small to moderate user bases but not for large-scale deployments.
+    \item \textbf{Limited user analytics:} No detailed tracking of user progress or question statistics.
+    \item \textbf{No offline quiz:} Requires internet for fetching new questions.
+\end{itemize}
+
+
+\section*{Conclusion}
+
+\noindent
+\textit{Quiztastic} is a robust and scalable quiz platform that leverages Python, Tkinter, and SQLite to deliver a dynamic and interactive user experience. The system supports secure user management, customizable quizzes, real-time scoring, and competitive leaderboards. With clear design and modular architecture, it offers a foundation for future enhancement and adaptation to broader educational needs.
+
+
+
+
+\end{document}
