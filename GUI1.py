@@ -41,21 +41,21 @@ root.mainloop()
 
 
 
-s1="this apple is sweet"
-s2 = "this apple is sour"
-s3=s1.split()
-s4=s2.split()
-print(s3, s4)
-l=[]
-for i in s3:
-    print("s1",i)
-for j in s4:
-    print("s2",j)
-if i !=j:
-    print(i,j)
-    l.append(i)
-    l.append(j)
-print(l)
+# s1="this apple is sweet"
+# s2 = "this apple is sour"
+# s3=s1.split()
+# s4=s2.split()
+# print(s3, s4)
+# l=[]
+# for i in s3:
+#     print("s1",i)
+# for j in s4:
+#     print("s2",j)
+# if i !=j:
+#     print(i,j)
+#     l.append(i)
+#     l.append(j)
+# print(l)
         # if i!=j:
 #             print(i,j)
 #             l.append(i)
