@@ -20,4 +20,3 @@ with open('data.pkl', mode='rb') as file:
     for record in data:
         incremented_age = record[1] + 10 # Increment age by 10
         print([record[0], incremented_age, record[2]])  
-
