@@ -1,8 +1,7 @@
 import tkinter as tk
-##rotation by 90 degres
-# m= [[1,2,3],[4,5,6],[7,8,9]] ##sample matrix
+import ast
 def rotation():
-    m=en.get()
+    m = ast.literal_eval(en.get())
  
     p=[]
 
