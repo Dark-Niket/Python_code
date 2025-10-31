@@ -1,0 +1,61 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\geometry{margin=1in}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\vspace{2cm}
+%\textsc{Oregon State University}\\[1.5cm]
+\includegraphics[width=1\textwidth]{dpsSociety.jpg}\\[1cm]
+\vspace{2cm}
+% Title
+\hrule
+\vspace{.5cm}
+{ \huge \bfseries PHYSICS PROJECT} % title of the report
+\vspace{.5cm}
+\hrule
+\vspace{1.5cm}
+\textsc{\textbf{Author}}\\
+\vspace{.5cm}
+\centering
+% add your name here
+Name-NIKET BASU\\
+Cls-XII J ; Roll No:17\\
+Adm No:14184/2024\\
+\vspace{4cm}
+
+\end{center}
+\end{titlepage}
+
+\author{Prepared by: Niket Basu}
+\date{}
+
+
+% Set up fancy page style BEFORE \maketitle
+\pagestyle{fancy}
+\fancyhf{} % Clear all headers and footers
+\rhead{\nouppercase{\rightmark}}
+\lhead{Physics Project} % Use actual title text instead of \title command
+\rfoot{\includegraphics[height=1cm]{logo.png}} % right footer logo
+\cfoot{\thepage}
+\setlength\headheight{16pt}
+\setlength{\footskip}{50pt}
+
+% Also define the plain style to match fancy style for first page
+\fancypagestyle{plain}{%
+  \fancyhf{} % Clear all headers and footers
+  \rhead{\nouppercase{\rightmark}}
+  \lhead{Physics Project}
+  \rfoot{\includegraphics[height=1cm]{logo.png}}
+  \cfoot{\thepage}
+}
+\end{document}
