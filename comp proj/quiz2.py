@@ -94,6 +94,13 @@ class QuiztasticApp(tk.Tk):
         super().__init__()
         self.title("Quiztastic")
         self.geometry("800x600")
+        self.update_idletasks()
+        width = self.winfo_width()
+        height = self.winfo_height()
+        x = (self.winfo_screenwidth() // 2) - (width // 2)
+        y = (self.winfo_screenheight() // 2) - (height // 2)
+        self.geometry(f"{width}x{height}+{x}+{y}")
+        self.resizable(False, False)
         self.fullscreen = False
         self.bind("<F11>", self.toggle_fullscreen)
         self.bind("<Escape>", self.end_fullscreen)
@@ -103,6 +110,8 @@ class QuiztasticApp(tk.Tk):
             frame = F(self)
             self.frames[F] = frame
             frame.grid(row=0, column=0, sticky="nsew")
+        self.grid_rowconfigure(0, weight=1)
+        self.grid_columnconfigure(0, weight=1)
         self.show_frame(LoginFrame)
 
     def toggle_fullscreen(self, event=None):
@@ -134,7 +143,7 @@ class LoginFrame(tk.Frame):
 
     def login(self):
         username = self.user_entry.get().strip()
-        password = self.pass_entry.get()
+        password = self.pass_entry.get().strip()
         if login_user(username, password):
             self.master.current_user = username
             messagebox.showinfo("Success", "Login successful!")
@@ -159,7 +168,7 @@ class RegisterFrame(tk.Frame):
 
     def register(self):
         username = self.user_entry.get().strip()
-        password = self.pass_entry.get()
+        password = self.pass_entry.get().strip()
         if not username or not password:
             messagebox.showerror("Error", "Please enter username and password.")
             return
@@ -206,7 +215,6 @@ class HomeFrame(tk.Frame):
         ttk.Combobox(container, values=["multiple", "boolean"], textvariable=self.type_var, font=("Arial", 12)).pack(pady=5)
         tk.Label(container, text="Number of Questions", font=("Arial", 12)).pack(pady=5)
         tk.Spinbox(container, from_=1, to=20, textvariable=self.amount_var, font=("Arial", 12)).pack(pady=5)
-        # --- THIS IS THE MISSING BUTTON ---
         tk.Button(container, text="Start Quiz", command=lambda: self.start_quiz(cat_dict, popup), font=("Arial", 12), width=20).pack(pady=20)
 
     def start_quiz(self, cat_dict, popup):
