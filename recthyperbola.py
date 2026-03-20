@@ -18,7 +18,7 @@ t.penup()
 t.goto(0, 0)
 t.pendown()
 
-# Draw the upper curve (solid line)
+
 for x in range(1, 400):
     y =300/x
     t.goto(x, y)
