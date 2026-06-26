@@ -14,11 +14,7 @@ def remove_element():
 
 
 
-def add_context():
-    d={"Anita":78,"Diode":89,"Fob":45}
-    for i in d :
-        print (i)
-# add_context()
+
 
 
 
@@ -70,5 +66,5 @@ def popi():
 s="NIKETBASUSUDIPBASUMOTUISHIDCJHWSD"
 k=s.split("I"
 )      
-print(k)
+# print(k)
     
