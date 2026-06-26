@@ -1,5 +1,6 @@
 #include <stdio.h>
 int main(){
-    printf("Hello world");
+    float r=3.14*3.14;
+    printf("%f",r);
     return 0;
 }
